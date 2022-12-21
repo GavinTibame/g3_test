@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>場地租借</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&family=Ephesis&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="./source/vue.global.js"></script>
+    <link rel="stylesheet" href="../css/rental/rental.css">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        @@include("layout/topbar.html")
+        <main class="rental">
+            @@include("layout/breadcrumb.html", {"currentPage": "場地租借分頁"})
+            <div class="banner">
+                <div class="banner__img">
+                    <div class="banner__textarea">
+                        <div class="banner__eng">VENUE RENTAL</div>
+                        <div class="banner__zh">場地租借</div>
+                    </div>
+                </div>
+            </div>
+            <article class="apply">
+                <section class="rental__section">
+                    <h3 class="rental__title">
+                        <em>宗旨</em>
+                    </h3>
+                    <p>臺北市政府委託財團法人台北市文化基金會經營管理之韶光文創園區（以下稱本園區），為促進文化創意產業、藝文交流、影視拍攝、文化觀光等多元活動，受理本園區場地申請及審查，特訂定此辦法。</p>
+                </section>
+                <section class="rental__section">
+                    <h3 class="rental__title">
+                        <em>申請資格</em>
+                    </h3>
+                    <dl class="rental-dl">
+                        <dt>一般團體及個人</dt>
+                        <dd>團體：法人、政府機關、一般公司企業、藝文團體及學校等。</dd>
+                        <dd>個人：年滿二十歲之中華民國國民，或在台領有合法居留證件之外國人。</dd>
+                    </dl>
+                </section>
+                <section class="rental__section">
+                    <h3 class="rental__title">
+                        <em>申請辦法</em>
+                    </h3>
+                    <dl class="rental-dl">
+                        <dt>場地申請需備妥下列資料：</dt>
+                        <dd>1. 韶光文創園區場地租借申請表</dd>
+                        <dd>2. 活動企劃書</dd>
+                        <dd>3. 立案證書影本（社團證書、藝文團體立案登記、公司變更登記表擇一），若為個人申請附上身分證明文件影本。申請優惠價之單位需符合文化創意產業內容及範圍者。</dd>
+                    </dl>
+                </section>
+                <section class="rental__section">
+                    <h3 class="rental__title">
+                        <em>場地收費標準</em>
+                        <small>*可移至以下各場館查看</small>
+                    </h3>
+                    <div class="map" id="Map"></div>
+                </section>
+                <section class="rental__section">
+                    <h3 class="rental__title"><em>申請流程</em></h3>
+                    <p>除網絡表單外亦可來電洽詢所需檔期。</p>
+                    <p>與業務窗口確認檔期無誤，以電子檔及紙本文件申請資料寄送至園區信箱，業務提供場地報價單。</p>
+                    <p>園區審核時間為7-10個工作天。活動內容不得危害公共安全、違法及違背善良社會風俗；且不受理與政治、宗教有關之集會活動。上述申請作業請於最晚進場使用前30個工作天提出申請。審核流程完成後本園區將以電子郵件寄發核准通知信、合約及後續事宜。
+                    </p>
+                    <p>聯絡電話：+886-2-2222-3333 轉業務發展組。</p>
+                    <p>每年開放次年度檔期接受申請，須以韶光文創園區官網公告開放檔期申請時間為準。</p>
+                    <p>辦理檔期預計達60天以上展覽活動之單位，申請檔期總天數不得超過120天(包含進撤場天數)</p>
+                    <p>本園區保有場地變更及租借決定權。</p>
+                </section>
+                <section class="rental__section">
+                    <h3 class="rental__title"><em>其他服務</em></h3>
+                    <dl class="rental-dl">
+                        <dt><span>▴代售門票服務</span></dt>
+                        <dd>
+                            <ul>
+                                <li class="dd-pt"> 依主辦單位需求提供票務設定建議，於提供完整建檔資料後預計7至10個工作日完成售票頁面建置。</li>
+                                <li>配合相關票務規劃。</li>
+                                <li>提供各場次銷售報表並進行相關票務結案與票款給付。</li>
+                                <li>如展覽因故有取消、延期等異動狀況，將協助以e-mail、簡訊、園區公告等方式協助提供已購票觀眾異動訊息。
+                                </li>
+                            </ul>
+                        </dd>
+                        <dt><span>▴周邊商品網絡寄賣服務</span></dt>
+                        <dd>
+                            <ul>
+                                <li>依主辦單位需求提供商品代售服務，於提供完整建檔資料後預計7至10個工作日完成商品頁面建置。</li>
+                                <li>於韶光文創線上商城協助販售，提供銷售報表與進行相關商品結案及貨款給付。 </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </section>
+                <div class="btn__ctn">
+                    <button id="goApplyForm" class="btn__apply">開始申請</button>
+                </div>
+            </article>
+        </main>
+        @@include("layout/footer.html")
+    </div>
+    <script>
+        // $(() => {
+        //     $("#header").load("topbar.html");
+        //     $("#footer").load("footer.html");
+        // });
+        const createApp = Vue.createApp({
+            data() {
+                return {
+
+                }
+            }, methods: {
+
+            }
+        }).mount("#Map");
+    </script>
+</body>
+
+</html>

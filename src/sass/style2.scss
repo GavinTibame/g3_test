@@ -1,0 +1,194 @@
+@use "sass:math";
+$shadow-overlay: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+$map-color: (
+    "key-color": #533C1B,
+    "key2-color": #C09351) !default;
+$map-color: (
+    // 同檔案內覆蓋不掉default
+    "key-color": #533C1B,
+);
+$breadcrumb: 0 10px;
+$flex: "ul";
+
+$mobile-pt: 428px;
+
+
+* {}
+
+#{$flex} {
+    display: flex;
+
+    & li {
+
+        & a {
+            text-decoration: none;
+            background-color: map-get($map-color, key2-color);
+
+            &:hover {}
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.rental .banner {
+    position: relative;
+}
+
+.banner__img {
+    background-image: url("../../banner__rental.png");
+    height: math.div(472px, 1920) * 1280; // 除法寫法
+}
+
+
+main.rental {
+    width: calc(100vw - 100px);
+    margin: 0 auto;
+}
+
+
+
+.rental .banner__eng {
+    font-size: 3.8rem;
+    font-weight: bold;
+    color: var(--brown-color);
+    letter-spacing: .8rem;
+    padding: 4rem 5.2rem 2rem;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        @if ($i < 3) {
+            font-size: 64px - (($i - 1)*16);
+        }
+
+        @else if ($i < 5) {
+            font-size: 56px - (($i - 1)*8);
+        }
+
+        @else {
+            font-size: 40px - (($i - 1)*4);
+        }
+    }
+
+    @if ($i ==6) {
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+@mixin space($topRightBottomLeft, $move_num, $boolean: true) {
+
+    // object direction
+    // @include space(news方向, 位移數量)
+    @for $i from 1 through $move_num {
+        .#{$topRightBottomLeft}_#{$i} {
+            @if $boolean {
+                position: relative;
+                #{$topRightBottomLeft}: $i * 1px;
+            }
+
+            @else {
+                margin-#{$topRightBottomLeft}: $i * 1px;
+            }
+        }
+    }
+}
+
+// @for $i from 1 through 10 {
+//     space#{$i} {
+//         @include space(top, (100 + ($i * 10)));
+//     }
+// }
+@mixin tablet() {
+    @media all and (max-width: 1024px) {
+        @content
+    }
+}
+
+;
+
+@mixin mobile() {
+    @media all and (max-width: 428px) {
+        @content
+    }
+}
+
+;
+
+@mixin grid($grid-num, $string: "") {
+    @for $i from 1 through $grid-num {
+        .col#{$string}-#{$i} {
+            width: math.div(100%, math.div($grid-num, $i));
+        }
+    }
+}
+
+;
+@include grid(12);
+
+@include tablet {
+    @include grid(8, "-md")
+}
+
+@include mobile {
+    @include grid(6, "-sm")
+}
+
+$list: 1 2 3 4;
+
+@mixin img($list) {
+    @each $key in $list {
+        .img_#{$key} {
+            background-image: url("assets/img/a#{$key}.png");
+        }
+    }
+}
+
+@include img(banner1 banner2 banner3);
+
+$colorStyle: (
+    "primary": red,
+    "secondary": orange,
+    "sub-1": lightyellow,
+    "sub-2":lightgreen
+);
+
+@each $key,
+$value in $colorStyle {
+    .#{$key}-bg {
+        background-color: $value;
+    }
+
+    @for $i from 1 through 9 {
+        .#{$key}-bg-#{$i} {
+            background-color: darken($value, $i * 5);
+        }
+    }
+}
+
+$fontStyle: (
+    "h1": 96px,
+    "h2":60px,
+    "h3":48px,
+    "h4": 34px,
+    "h5":28px,
+    "h6": 20px
+);
+
+@each $key,
+$value in $fontStyle {
+    #{$key} {
+        font-style: $value;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+}

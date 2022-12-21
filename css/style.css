@@ -1,7 +1,199 @@
-body{
-    color:black;
+:root {
+    font-family: 'Enriqueta', 'Noto Sans TC';
+    --brown-color: #533C1B;
+    --carmel-color: #C09351;
+    --carmel-tgh-color: rgb(192, 147, 81, .5);
+    --sub-skin-color: #F6E6CF;
+    --sub-carmel-color: #CFB58F;
+    --sub-LTgray-color: #D9D9D9;
+    --sub-gray-color: #C3BCB1;
+    --sub-DKgray-color: #B3B3B3;
+    --font-color: #261C0D;
+    --lakeGreen-color: #618985;
+    --warning-color: #CD4B21;
+    --fb-color: #375798;
+}
+
+.display__none {
+    display: none !important
+}
+
+* {
+    font-family: 'Enriqueta', 'Noto Sans TC';
+}
+
+main.rental {
+    max-width: calc(100vw - 100px);
+    margin: 0 auto;
+}
+
+main.rental * {
+    box-sizing: border-box;
+}
+
+main.rental a {
+    text-decoration: none;
+    color: var(--font-color)
+}
+
+.rental .breadcrumb {
+    display: flex;
+    min-width: 100%;
+    padding: 5px 8%;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.5);
+    color: var(--font-color);
+}
+
+.rental .breadcrumb li:nth-child(even)::before {
+    content: "";
+    height: .6rem;
+    border-left: solid 1px black;
+    display: inline-block;
+    margin: 0 .5rem;
+}
+
+.rental .breadcrumb li:nth-child(even) a {
+    color: var(--lakeGreen-color)
+}
+
+.rental .breadcrumb a {
+    font-size: .8rem;
+    line-height: 20px;
+}
+
+.rental .banner {
+    position: relative;
+}
+
+.rental .banner__img {
+    background-image: url(../../img/banner/banner__rental.png);
+    height: 470px;
+    background-position: 15% center;
+}
+
+.rental .banner__textarea {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-width: 57.5vw;
+    /* height: 15rem; */
+    background-color: rgba(256, 256, 256, .7);
+}
+
+.rental .banner__eng {
+    font-size: 3.8rem;
+    font-weight: bold;
+    color: var(--brown-color);
+    letter-spacing: .8rem;
+    padding: 4rem 5.2rem 2rem;
+}
+
+.rental .banner__zh::before {
+    content: "";
+    width: 18vw;
+    border-bottom: solid 3px var(--font-color);
+    display: inline-block;
+    margin-right: 2.8rem
+}
+
+.rental .banner__zh {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--carmel-color);
+    padding-bottom: 2rem;
+    display: block;
+    padding-left: 20vw;
+    padding-right: 5.2rem;
+    letter-spacing: .68rem;
+}
+
+
+.rental article {
+    padding: 3rem 0;
+}
+
+.rental article section {}
+
+.rental article section h3,
+.rental article section p,
+.rental article section dl {
+    width: 75vw;
+    margin: 0 auto 25px;
+}
+
+.rental article section h3 {
+    margin-top: 40px;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    border-left: solid 4px var(--carmel-color);
+}
+
+.rental article section em {
+    padding-left: .5rem;
+}
+
+.rental article small {}
+
+.rental article section p {
+    padding-left: 1.3rem;
+    line-height: 2rem;
+}
+
+.rental article section dl {
+    padding-left: 1.3rem;
+    line-height: 2.5rem;
+
+}
+
+.rental article section dt {}
+
+.rental article dt span {
+    color: var(--lakeGreen-color)
+}
+
+.rental article section dd {
+    line-height: 2rem;
+}
+
+.rental article section ul {
+    padding-left: 2.3rem;
+
+    list-style-type: disc;
+}
+
+.rental article .btn__ctn {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.rental article .btn__ctn .btn__apply {
+    padding: 15px 50px;
+    border: 0;
+    background-color: var(--brown-color);
+    border-radius: 3px;
+    color: #fff;
+}
+
+.rental article .btn__ctn .btn__apply :hover {
     background-color: #fff;
 }
-.color{
-    color: aquamarine;
+
+.rental article .btn__ctn .btn__apply::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--brown-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform .3s ease;
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+    outline: 1px solid var(--red-color);
 }
+
+.rental article div.map {}
